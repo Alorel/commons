@@ -1,0 +1,39 @@
+name: Core
+on:
+  - push
+
+jobs:
+  Test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+        node:
+          - 14.x
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Cache yarn
+        uses: actions/cache@v1
+        with:
+          key: v1-${{ matrix.os }}-${{ matrix.node }}-${{ github.ref }}-yarn
+          path: .yarn/cache
+          restore-keys: |
+            v1-${{ matrix.os }}-${{ matrix.node }}-refs/heads/master-yarn
+      - uses: actions/setup-node@v1
+        name: Set up node
+        with:
+          node-version: ${{ matrix.node }}
+          registry-url: https://npm.pkg.github.com/alorel
+      - name: Set up yarn
+        run: npm install -g yarn@^2.0.0-rc.27
+      - name: Install deps
+        run: yarn install --immutable
+        env:
+          YARN_ENABLE_GLOBAL_CACHE: 'false'
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lint
+        run: yarn run lint
