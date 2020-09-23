@@ -1,0 +1,15 @@
+{
+  "name": "@alorel/commons-array-types",
+  "version": "1.0.0",
+  "description": "Basic types for arrays",
+  "main": "index.js",
+  "repository": "https://github.com/Alorel/commons.git",
+  "types": "index.d.ts",
+  "typings": "index.d.ts",
+  "author": "Arturas Molcanovas <a.molcanovas@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  }
+}
