@@ -6,6 +6,10 @@ interface CSSStyleSheet {
   replaceSync(css: string): void;
 }
 
+interface Document {
+  adoptedStyleSheets: CSSStyleSheet[] | readonly CSSStyleSheet[] | null;
+}
+
 interface ShadowRoot {
   adoptedStyleSheets: CSSStyleSheet[] | readonly CSSStyleSheet[] | null;
 }
