@@ -1,0 +1,21 @@
+{
+  "name": "@alorel/commons-comparator",
+  "version": "1.0.0",
+  "description": "Basic value comparator type",
+  "main": "index.cjs.js",
+  "module": "_fesm5/index.es.js",
+  "esm5": "_fesm5/index.es.js",
+  "fesm5": "_fesm5/index.es.js",
+  "esm2015": "index.es.js",
+  "es2015": "index.es.js",
+  "fesm2015": "index.es.js",
+  "types": "index.d.ts",
+  "typings": "index.d.ts",
+  "repository": "https://github.com/Alorel/commons.git",
+  "author": "Arturas Molcanovas <a.molcanovas@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  }
+}
